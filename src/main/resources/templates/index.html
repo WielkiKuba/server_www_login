@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            padding: 0;
+            margin: 0%;
+            box-sizing: border-box;
+            background-image: url("galaxy.jpg");
+            background-size: cover;
+        }
+        .mainDiv{
+            background: linear-gradient(to bottom,#e83761,#293573);
+            /* background-color: #e83761; */
+            width: 80vh;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 60px;
+        }
+        h1{
+            scale: 250%;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            /* margin-top: 100px; */
+        }
+        input,button{
+            /* margin-top: 50px; */
+            width: 60%;
+            height: 35%;
+            border: 0px;
+            border-radius: 30px;
+        }
+        button{
+            background-color: #405DDE;
+        }
+        button:hover{
+            background-color: #e83761;
+        }
+        .logoDiv{
+            /* background-color: red; */
+            height: 20%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+        }
+        #formDiv{
+            height: 80%;
+            width: 100%;
+        }
+        .userDiv{
+            height: 33.3%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* background-color: green; */
+        }
+        .passwordDiv{
+            height: 33.3%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* background-color: blue; */
+        }
+        .buttonDiv{
+            display: flex;
+            align-items: center;
+            height: 33.3%;
+            width: 100%;
+            /* background-color: violet; */
+        }
+        .buttonDivLeft{
+            height: 100%;
+            width: 50%;
+            display: flex;
+            /* align-items: center; */
+            justify-content: end;
+            /* background-color: pink; */
+        }
+        .buttonDivRight{
+            height: 100%;
+            width: 50%;
+            display: flex;
+            /* align-items: center; */
+        }
+        form{
+            height: 100%;
+            width: 100%;
+        }
+        #img{
+            height: 10vh;
+            width: 10vh;
+        }
+        label{
+            margin-bottom: 15px;
+            scale: 200%;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        button{
+            font-size: 200%;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        #leftButton{
+            border-radius: 30px 0 0 30px;
+        }
+        #rightButton{
+            background-color: black;
+            color: white;
+            border-radius: 0 30px 30px 0;
+        }
+        #rightButton:hover{
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainDiv">
+        <div class="logoDiv">
+            <!-- <img id="img" src="lock.png" alt="lock"> -->
+            <h1>Log in</h1>
+        </div>
+        <div id="formDiv">
+            <form name="loginForm" th:action="@{/login}" method="post">
+                <div class="userDiv">
+                    <label for="username">Login:</label>
+                    <input type="text" placeholder="ENTER EMAIL" id="username" name="username" required>
+                </div>
+                <div class="passwordDiv">
+                    <label for="password">Password:</label>
+                    <input type="password" placeholder="ENTER PASSWORD" id="password" name="password" required>
+                </div>
+                <div class="buttonDiv">
+                    <div class="buttonDivLeft">
+                        <button type="submit" id="leftButton" class="btn">SIGN IN</button>
+                    </div>
+                    <div class="buttonDivRight">
+                        <button id="rightButton">SIGN UP</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
