@@ -19,7 +19,6 @@
         }
         .mainDiv{
             background: linear-gradient(to bottom,#e83761,#293573);
-            /* background-color: #e83761; */
             width: 80vh;
             height: 80vh;
             display: flex;
@@ -128,9 +127,8 @@
     </style>
 </head>
 <body>
-    <div class="mainDiv">
+    <div class="mainDiv" id="mainDivId">
         <div class="logoDiv">
-            <!-- <img id="img" src="lock.png" alt="lock"> -->
             <h1>Log in</h1>
         </div>
         <div id="formDiv">
@@ -148,11 +146,23 @@
                         <button type="submit" id="leftButton" class="btn">SIGN IN</button>
                     </div>
                     <div class="buttonDivRight">
-                        <button id="rightButton">SIGN UP</button>
+                        <button type="button" id="rightButton">SIGN UP</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </body>
+<script>
+    const mainDiv = document.getElementById('mainDivId')
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        mainDiv.style.width='40vh';
+        mainDiv.style.height='40vh';
+    }
+       
+    const signUpButton = document.getElementById("rightButton")
+    signUpButton.addEventListener('click',function(){
+        window.location='http://jakubdomain.ddns.net:8080/signUpView';
+    });
+</script>
 </html>
