@@ -7,12 +7,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 
 @Configuration
 @EnableWebSecurity
@@ -24,6 +22,8 @@ public class SecurityConfig{
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("galaxy.jpg").permitAll()
                         .requestMatchers("/login").permitAll()
+                        .requestMatchers("/signUp").permitAll()
+                        .requestMatchers("/signUpView").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
@@ -34,15 +34,6 @@ public class SecurityConfig{
                 )
                 .build();
     }
-//    @Bean
-//    InMemoryUserDetailsManager users(PasswordEncoder passwordEncoder){
-//        return new InMemoryUserDetailsManager(
-//                User.withUsername("admin")
-//                        .password(passwordEncoder.encode("admin"))
-//                        .roles("ADMIN")
-//                        .build()
-//        );
-//    }
     @Bean
     JdbcUserDetailsManager jdbcUsers(DataSource dataSource){
         JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
